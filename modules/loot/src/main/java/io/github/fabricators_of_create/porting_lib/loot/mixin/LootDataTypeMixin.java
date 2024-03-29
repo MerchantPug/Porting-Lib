@@ -17,7 +17,7 @@ import java.util.Optional;
 @Mixin(LootDataType.class)
 public class LootDataTypeMixin {
 	@ModifyReturnValue(method = "deserialize", at = @At("RETURN"))
-	private static <T> Optional<T> setLootTableId(Optional<T> optional, ResourceLocation id, JsonElement json) {
+	private <T> Optional<T> setLootTableId(Optional<T> optional, ResourceLocation id, JsonElement json) {
 		if (optional.isPresent() && optional.get() instanceof LootTable lootTable) {
 			lootTable.setLootTableId(id);
 		}
