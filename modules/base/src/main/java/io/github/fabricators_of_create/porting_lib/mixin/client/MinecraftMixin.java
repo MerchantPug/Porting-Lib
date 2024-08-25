@@ -87,11 +87,11 @@ public abstract class MinecraftMixin {
 	public void port_lib$modsLoaded(GameConfig gameConfig, CallbackInfo ci) {
 		ModsLoadedCallback.EVENT.invoker().onAllModsLoaded(EnvType.CLIENT);
 	}
-
-	@Inject(method = "<init>", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/packs/repository/PackRepository;reload()V"))
-	private void addClientResources(GameConfig gameConfig, CallbackInfo ci) {
-		new AddPackFindersEvent(PackType.CLIENT_RESOURCES, this.resourcePackRepository::pl$addPackFinder).sendEvent();
-	}
+//
+//	@Inject(method = "<init>", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/packs/repository/PackRepository;reload()V"))
+//	private void addClientResources(GameConfig gameConfig, CallbackInfo ci) {
+//		new AddPackFindersEvent(PackType.CLIENT_RESOURCES, this.resourcePackRepository::pl$addPackFinder).sendEvent();
+//	}
 
 	@Inject(
 			method = "startAttack",
