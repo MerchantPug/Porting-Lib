@@ -1,6 +1,6 @@
 # Notice!
 This branch is pretty much full of band-aid fixes to get Farmer's Delight Refabricated out earlier than Porting Lib's devs can work for 1.21.
-Please do not pressure the Porting Lib devs to get something out, it'll happen when it happens, additionally, do not report 1.21 Porting Lib issues to them, report them to Farmer's Delight Refabricated.
+Please do not pressure the Porting Lib devs to get something out, it'll happen when it happens, additionally, do not report 1.21 Porting Lib issues to them when using Refabricated., report them to Farmer's Delight Refabricated.
 
 # Porting Lib
 ### A collection of utilities for porting mods from Forge to Fabric.
