@@ -25,18 +25,18 @@ public final class BlockTagProvider extends FabricTagProvider.BlockTagProvider {
 	@SuppressWarnings("unchecked")
 	@Override
 	public void addTags(HolderLookup.Provider p_256380_) {
-		tag(Tags.Blocks.BARRELS).addTag(Tags.Blocks.BARRELS_WOODEN);
+		tag(Tags.Blocks.BARRELS).forceAddTag(Tags.Blocks.BARRELS_WOODEN);
 		tag(Tags.Blocks.BARRELS_WOODEN).add(Blocks.BARREL);
 		tag(Tags.Blocks.BOOKSHELVES).add(Blocks.BOOKSHELF);
 		tag(Tags.Blocks.BUDDING_BLOCKS).add(Blocks.BUDDING_AMETHYST);
 		tag(Tags.Blocks.BUDS).add(Blocks.SMALL_AMETHYST_BUD).add(Blocks.MEDIUM_AMETHYST_BUD).add(Blocks.LARGE_AMETHYST_BUD);
 		tag(Tags.Blocks.CHAINS).add(Blocks.CHAIN);
-		tag(Tags.Blocks.CHESTS).addTag(Tags.Blocks.CHESTS_ENDER).addTag(Tags.Blocks.CHESTS_TRAPPED).addTag(Tags.Blocks.CHESTS_WOODEN);
+		tag(Tags.Blocks.CHESTS).forceAddTag(Tags.Blocks.CHESTS_ENDER).forceAddTag(Tags.Blocks.CHESTS_TRAPPED).forceAddTag(Tags.Blocks.CHESTS_WOODEN);
 		tag(Tags.Blocks.CHESTS_ENDER).add(Blocks.ENDER_CHEST);
 		tag(Tags.Blocks.CHESTS_TRAPPED).add(Blocks.TRAPPED_CHEST);
 		tag(Tags.Blocks.CHESTS_WOODEN).add(Blocks.CHEST, Blocks.TRAPPED_CHEST);
 		tag(Tags.Blocks.CLUSTERS).add(Blocks.AMETHYST_CLUSTER);
-		tag(Tags.Blocks.COBBLESTONES).addTag(Tags.Blocks.COBBLESTONES_NORMAL).addTag(Tags.Blocks.COBBLESTONES_INFESTED).addTag(Tags.Blocks.COBBLESTONES_MOSSY).addTag(Tags.Blocks.COBBLESTONES_DEEPSLATE);
+		tag(Tags.Blocks.COBBLESTONES).forceAddTag(Tags.Blocks.COBBLESTONES_NORMAL).forceAddTag(Tags.Blocks.COBBLESTONES_INFESTED).forceAddTag(Tags.Blocks.COBBLESTONES_MOSSY).forceAddTag(Tags.Blocks.COBBLESTONES_DEEPSLATE);
 		tag(Tags.Blocks.COBBLESTONES_NORMAL).add(Blocks.COBBLESTONE);
 		tag(Tags.Blocks.COBBLESTONES_INFESTED).add(Blocks.INFESTED_COBBLESTONE);
 		tag(Tags.Blocks.COBBLESTONES_MOSSY).add(Blocks.MOSSY_COBBLESTONE);
@@ -58,16 +58,16 @@ public final class BlockTagProvider extends FabricTagProvider.BlockTagProvider {
 		addColoredTags(tag(Tags.Blocks.DYED)::addTag, Tags.Blocks.DYED);
 		tag(Tags.Blocks.END_STONES).add(Blocks.END_STONE);
 		tag(Tags.Blocks.ENDERMAN_PLACE_ON_BLACKLIST);
-		tag(Tags.Blocks.FENCE_GATES).addTag(Tags.Blocks.FENCE_GATES_WOODEN);
+		tag(Tags.Blocks.FENCE_GATES).forceAddTag(Tags.Blocks.FENCE_GATES_WOODEN);
 		tag(Tags.Blocks.FENCE_GATES_WOODEN).add(Blocks.OAK_FENCE_GATE, Blocks.SPRUCE_FENCE_GATE, Blocks.BIRCH_FENCE_GATE, Blocks.JUNGLE_FENCE_GATE, Blocks.ACACIA_FENCE_GATE, Blocks.DARK_OAK_FENCE_GATE, Blocks.CRIMSON_FENCE_GATE, Blocks.WARPED_FENCE_GATE, Blocks.MANGROVE_FENCE_GATE, Blocks.BAMBOO_FENCE_GATE, Blocks.CHERRY_FENCE_GATE);
-		tag(Tags.Blocks.FENCES).addTag(Tags.Blocks.FENCES_NETHER_BRICK).addTag(Tags.Blocks.FENCES_WOODEN);
+		tag(Tags.Blocks.FENCES).forceAddTag(Tags.Blocks.FENCES_NETHER_BRICK).forceAddTag(Tags.Blocks.FENCES_WOODEN);
 		tag(Tags.Blocks.FENCES_NETHER_BRICK).add(Blocks.NETHER_BRICK_FENCE);
-		tag(Tags.Blocks.FENCES_WOODEN).addTag(BlockTags.WOODEN_FENCES);
-		tag(Tags.Blocks.GLASS_BLOCKS).addTag(Tags.Blocks.GLASS_BLOCKS_COLORLESS).addTag(Tags.Blocks.GLASS_BLOCKS_CHEAP).addTag(Tags.Blocks.GLASS_BLOCKS_TINTED).add(Blocks.WHITE_STAINED_GLASS, Blocks.ORANGE_STAINED_GLASS, Blocks.MAGENTA_STAINED_GLASS, Blocks.LIGHT_BLUE_STAINED_GLASS, Blocks.YELLOW_STAINED_GLASS, Blocks.LIME_STAINED_GLASS, Blocks.PINK_STAINED_GLASS, Blocks.GRAY_STAINED_GLASS, Blocks.LIGHT_GRAY_STAINED_GLASS, Blocks.CYAN_STAINED_GLASS, Blocks.PURPLE_STAINED_GLASS, Blocks.BLUE_STAINED_GLASS, Blocks.BROWN_STAINED_GLASS, Blocks.GREEN_STAINED_GLASS, Blocks.RED_STAINED_GLASS, Blocks.BLACK_STAINED_GLASS);
+		tag(Tags.Blocks.FENCES_WOODEN).forceAddTag(BlockTags.WOODEN_FENCES);
+		tag(Tags.Blocks.GLASS_BLOCKS).forceAddTag(Tags.Blocks.GLASS_BLOCKS_COLORLESS).forceAddTag(Tags.Blocks.GLASS_BLOCKS_CHEAP).forceAddTag(Tags.Blocks.GLASS_BLOCKS_TINTED).add(Blocks.WHITE_STAINED_GLASS, Blocks.ORANGE_STAINED_GLASS, Blocks.MAGENTA_STAINED_GLASS, Blocks.LIGHT_BLUE_STAINED_GLASS, Blocks.YELLOW_STAINED_GLASS, Blocks.LIME_STAINED_GLASS, Blocks.PINK_STAINED_GLASS, Blocks.GRAY_STAINED_GLASS, Blocks.LIGHT_GRAY_STAINED_GLASS, Blocks.CYAN_STAINED_GLASS, Blocks.PURPLE_STAINED_GLASS, Blocks.BLUE_STAINED_GLASS, Blocks.BROWN_STAINED_GLASS, Blocks.GREEN_STAINED_GLASS, Blocks.RED_STAINED_GLASS, Blocks.BLACK_STAINED_GLASS);
 		tag(Tags.Blocks.GLASS_BLOCKS_COLORLESS).add(Blocks.GLASS);
 		tag(Tags.Blocks.GLASS_BLOCKS_CHEAP).add(Blocks.GLASS, Blocks.WHITE_STAINED_GLASS, Blocks.ORANGE_STAINED_GLASS, Blocks.MAGENTA_STAINED_GLASS, Blocks.LIGHT_BLUE_STAINED_GLASS, Blocks.YELLOW_STAINED_GLASS, Blocks.LIME_STAINED_GLASS, Blocks.PINK_STAINED_GLASS, Blocks.GRAY_STAINED_GLASS, Blocks.LIGHT_GRAY_STAINED_GLASS, Blocks.CYAN_STAINED_GLASS, Blocks.PURPLE_STAINED_GLASS, Blocks.BLUE_STAINED_GLASS, Blocks.BROWN_STAINED_GLASS, Blocks.GREEN_STAINED_GLASS, Blocks.RED_STAINED_GLASS, Blocks.BLACK_STAINED_GLASS);
 		tag(Tags.Blocks.GLASS_BLOCKS_TINTED).add(Blocks.TINTED_GLASS);
-		tag(Tags.Blocks.GLASS_PANES).addTag(Tags.Blocks.GLASS_PANES_COLORLESS).add(Blocks.WHITE_STAINED_GLASS_PANE, Blocks.ORANGE_STAINED_GLASS_PANE, Blocks.MAGENTA_STAINED_GLASS_PANE, Blocks.LIGHT_BLUE_STAINED_GLASS_PANE, Blocks.YELLOW_STAINED_GLASS_PANE, Blocks.LIME_STAINED_GLASS_PANE, Blocks.PINK_STAINED_GLASS_PANE, Blocks.GRAY_STAINED_GLASS_PANE, Blocks.LIGHT_GRAY_STAINED_GLASS_PANE, Blocks.CYAN_STAINED_GLASS_PANE, Blocks.PURPLE_STAINED_GLASS_PANE, Blocks.BLUE_STAINED_GLASS_PANE, Blocks.BROWN_STAINED_GLASS_PANE, Blocks.GREEN_STAINED_GLASS_PANE, Blocks.RED_STAINED_GLASS_PANE, Blocks.BLACK_STAINED_GLASS_PANE);
+		tag(Tags.Blocks.GLASS_PANES).forceAddTag(Tags.Blocks.GLASS_PANES_COLORLESS).add(Blocks.WHITE_STAINED_GLASS_PANE, Blocks.ORANGE_STAINED_GLASS_PANE, Blocks.MAGENTA_STAINED_GLASS_PANE, Blocks.LIGHT_BLUE_STAINED_GLASS_PANE, Blocks.YELLOW_STAINED_GLASS_PANE, Blocks.LIME_STAINED_GLASS_PANE, Blocks.PINK_STAINED_GLASS_PANE, Blocks.GRAY_STAINED_GLASS_PANE, Blocks.LIGHT_GRAY_STAINED_GLASS_PANE, Blocks.CYAN_STAINED_GLASS_PANE, Blocks.PURPLE_STAINED_GLASS_PANE, Blocks.BLUE_STAINED_GLASS_PANE, Blocks.BROWN_STAINED_GLASS_PANE, Blocks.GREEN_STAINED_GLASS_PANE, Blocks.RED_STAINED_GLASS_PANE, Blocks.BLACK_STAINED_GLASS_PANE);
 		tag(Tags.Blocks.GLASS_PANES_COLORLESS).add(Blocks.GLASS_PANE);
 		tag(Tags.Blocks.GLAZED_TERRACOTTAS).add(Blocks.WHITE_GLAZED_TERRACOTTA, Blocks.ORANGE_GLAZED_TERRACOTTA, Blocks.MAGENTA_GLAZED_TERRACOTTA, Blocks.LIGHT_BLUE_GLAZED_TERRACOTTA, Blocks.YELLOW_GLAZED_TERRACOTTA, Blocks.LIME_GLAZED_TERRACOTTA, Blocks.PINK_GLAZED_TERRACOTTA, Blocks.GRAY_GLAZED_TERRACOTTA, Blocks.LIGHT_GRAY_GLAZED_TERRACOTTA, Blocks.CYAN_GLAZED_TERRACOTTA, Blocks.PURPLE_GLAZED_TERRACOTTA, Blocks.BLUE_GLAZED_TERRACOTTA, Blocks.BROWN_GLAZED_TERRACOTTA, Blocks.GREEN_GLAZED_TERRACOTTA, Blocks.RED_GLAZED_TERRACOTTA, Blocks.BLACK_GLAZED_TERRACOTTA);
 		tag(Tags.Blocks.GRAVELS).add(Blocks.GRAVEL);
@@ -81,23 +81,23 @@ public final class BlockTagProvider extends FabricTagProvider.BlockTagProvider {
 		tag(Tags.Blocks.ORE_RATES_DENSE).add(Blocks.COPPER_ORE, Blocks.DEEPSLATE_COPPER_ORE, Blocks.DEEPSLATE_LAPIS_ORE, Blocks.DEEPSLATE_REDSTONE_ORE, Blocks.LAPIS_ORE, Blocks.REDSTONE_ORE);
 		tag(Tags.Blocks.ORE_RATES_SINGULAR).add(Blocks.ANCIENT_DEBRIS, Blocks.COAL_ORE, Blocks.DEEPSLATE_COAL_ORE, Blocks.DEEPSLATE_DIAMOND_ORE, Blocks.DEEPSLATE_EMERALD_ORE, Blocks.DEEPSLATE_GOLD_ORE, Blocks.DEEPSLATE_IRON_ORE, Blocks.DIAMOND_ORE, Blocks.EMERALD_ORE, Blocks.GOLD_ORE, Blocks.IRON_ORE, Blocks.NETHER_QUARTZ_ORE);
 		tag(Tags.Blocks.ORE_RATES_SPARSE).add(Blocks.NETHER_GOLD_ORE);
-		tag(Tags.Blocks.ORES).addTag(Tags.Blocks.ORES_COAL).addTag(Tags.Blocks.ORES_COPPER).addTag(Tags.Blocks.ORES_DIAMOND).addTag(Tags.Blocks.ORES_EMERALD).addTag(Tags.Blocks.ORES_GOLD).addTag(Tags.Blocks.ORES_IRON).addTag(Tags.Blocks.ORES_LAPIS).addTag(Tags.Blocks.ORES_NETHERITE_SCRAP).addTag(Tags.Blocks.ORES_REDSTONE).addTag(Tags.Blocks.ORES_QUARTZ);
-		tag(Tags.Blocks.ORES_COAL).addTag(BlockTags.COAL_ORES);
-		tag(Tags.Blocks.ORES_COPPER).addTag(BlockTags.COPPER_ORES);
-		tag(Tags.Blocks.ORES_DIAMOND).addTag(BlockTags.DIAMOND_ORES);
-		tag(Tags.Blocks.ORES_EMERALD).addTag(BlockTags.EMERALD_ORES);
-		tag(Tags.Blocks.ORES_GOLD).addTag(BlockTags.GOLD_ORES);
-		tag(Tags.Blocks.ORES_IRON).addTag(BlockTags.IRON_ORES);
-		tag(Tags.Blocks.ORES_LAPIS).addTag(BlockTags.LAPIS_ORES);
+		tag(Tags.Blocks.ORES).forceAddTag(Tags.Blocks.ORES_COAL).forceAddTag(Tags.Blocks.ORES_COPPER).forceAddTag(Tags.Blocks.ORES_DIAMOND).forceAddTag(Tags.Blocks.ORES_EMERALD).forceAddTag(Tags.Blocks.ORES_GOLD).forceAddTag(Tags.Blocks.ORES_IRON).forceAddTag(Tags.Blocks.ORES_LAPIS).forceAddTag(Tags.Blocks.ORES_NETHERITE_SCRAP).forceAddTag(Tags.Blocks.ORES_REDSTONE).forceAddTag(Tags.Blocks.ORES_QUARTZ);
+		tag(Tags.Blocks.ORES_COAL).forceAddTag(BlockTags.COAL_ORES);
+		tag(Tags.Blocks.ORES_COPPER).forceAddTag(BlockTags.COPPER_ORES);
+		tag(Tags.Blocks.ORES_DIAMOND).forceAddTag(BlockTags.DIAMOND_ORES);
+		tag(Tags.Blocks.ORES_EMERALD).forceAddTag(BlockTags.EMERALD_ORES);
+		tag(Tags.Blocks.ORES_GOLD).forceAddTag(BlockTags.GOLD_ORES);
+		tag(Tags.Blocks.ORES_IRON).forceAddTag(BlockTags.IRON_ORES);
+		tag(Tags.Blocks.ORES_LAPIS).forceAddTag(BlockTags.LAPIS_ORES);
 		tag(Tags.Blocks.ORES_QUARTZ).add(Blocks.NETHER_QUARTZ_ORE);
-		tag(Tags.Blocks.ORES_REDSTONE).addTag(BlockTags.REDSTONE_ORES);
+		tag(Tags.Blocks.ORES_REDSTONE).forceAddTag(BlockTags.REDSTONE_ORES);
 		tag(Tags.Blocks.ORES_NETHERITE_SCRAP).add(Blocks.ANCIENT_DEBRIS);
 		tag(Tags.Blocks.ORES_IN_GROUND_DEEPSLATE).add(Blocks.DEEPSLATE_COAL_ORE, Blocks.DEEPSLATE_COPPER_ORE, Blocks.DEEPSLATE_DIAMOND_ORE, Blocks.DEEPSLATE_EMERALD_ORE, Blocks.DEEPSLATE_GOLD_ORE, Blocks.DEEPSLATE_IRON_ORE, Blocks.DEEPSLATE_LAPIS_ORE, Blocks.DEEPSLATE_REDSTONE_ORE);
 		tag(Tags.Blocks.ORES_IN_GROUND_NETHERRACK).add(Blocks.NETHER_GOLD_ORE, Blocks.NETHER_QUARTZ_ORE);
 		tag(Tags.Blocks.ORES_IN_GROUND_STONE).add(Blocks.COAL_ORE, Blocks.COPPER_ORE, Blocks.DIAMOND_ORE, Blocks.EMERALD_ORE, Blocks.GOLD_ORE, Blocks.IRON_ORE, Blocks.LAPIS_ORE, Blocks.REDSTONE_ORE);
 		tag(Tags.Blocks.PLAYER_WORKSTATIONS_CRAFTING_TABLES).add(Blocks.CRAFTING_TABLE);
 		tag(Tags.Blocks.PLAYER_WORKSTATIONS_FURNACES).add(Blocks.FURNACE);
-		tag(Tags.Blocks.SANDS).addTag(Tags.Blocks.SANDS_COLORLESS).addTag(Tags.Blocks.SANDS_RED);
+		tag(Tags.Blocks.SANDS).forceAddTag(Tags.Blocks.SANDS_COLORLESS).forceAddTag(Tags.Blocks.SANDS_RED);
 		tag(Tags.Blocks.RELOCATION_NOT_SUPPORTED);
 		tag(Tags.Blocks.ROPES);
 		tag(Tags.Blocks.SANDS_COLORLESS).add(Blocks.SAND);
@@ -105,21 +105,21 @@ public final class BlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
 		tag(Tags.Blocks.SANDSTONE_RED_BLOCKS).add(Blocks.RED_SANDSTONE, Blocks.CUT_RED_SANDSTONE, Blocks.CHISELED_RED_SANDSTONE, Blocks.SMOOTH_RED_SANDSTONE);
 		tag(Tags.Blocks.SANDSTONE_UNCOLORED_BLOCKS).add(Blocks.SANDSTONE, Blocks.CUT_SANDSTONE, Blocks.CHISELED_SANDSTONE, Blocks.SMOOTH_SANDSTONE);
-		tag(Tags.Blocks.SANDSTONE_BLOCKS).addTag(Tags.Blocks.SANDSTONE_RED_BLOCKS).addTag(Tags.Blocks.SANDSTONE_UNCOLORED_BLOCKS);
+		tag(Tags.Blocks.SANDSTONE_BLOCKS).forceAddTag(Tags.Blocks.SANDSTONE_RED_BLOCKS).forceAddTag(Tags.Blocks.SANDSTONE_UNCOLORED_BLOCKS);
 		tag(Tags.Blocks.SANDSTONE_RED_SLABS).add(Blocks.RED_SANDSTONE_SLAB, Blocks.CUT_RED_SANDSTONE_SLAB, Blocks.SMOOTH_RED_SANDSTONE_SLAB);
 		tag(Tags.Blocks.SANDSTONE_UNCOLORED_SLABS).add(Blocks.SANDSTONE_SLAB, Blocks.CUT_SANDSTONE_SLAB, Blocks.SMOOTH_SANDSTONE_SLAB);
-		tag(Tags.Blocks.SANDSTONE_SLABS).addTag(Tags.Blocks.SANDSTONE_RED_SLABS).addTag(Tags.Blocks.SANDSTONE_UNCOLORED_SLABS);
+		tag(Tags.Blocks.SANDSTONE_SLABS).forceAddTag(Tags.Blocks.SANDSTONE_RED_SLABS).forceAddTag(Tags.Blocks.SANDSTONE_UNCOLORED_SLABS);
 		tag(Tags.Blocks.SANDSTONE_RED_STAIRS).add(Blocks.RED_SANDSTONE_STAIRS, Blocks.SMOOTH_RED_SANDSTONE_STAIRS);
 		tag(Tags.Blocks.SANDSTONE_UNCOLORED_STAIRS).add(Blocks.SANDSTONE_STAIRS, Blocks.SMOOTH_SANDSTONE_STAIRS);
-		tag(Tags.Blocks.SANDSTONE_STAIRS).addTag(Tags.Blocks.SANDSTONE_RED_STAIRS).addTag(Tags.Blocks.SANDSTONE_UNCOLORED_STAIRS);
+		tag(Tags.Blocks.SANDSTONE_STAIRS).forceAddTag(Tags.Blocks.SANDSTONE_RED_STAIRS).forceAddTag(Tags.Blocks.SANDSTONE_UNCOLORED_STAIRS);
 
 		tag(Tags.Blocks.STONES).add(Blocks.ANDESITE, Blocks.DIORITE, Blocks.GRANITE, Blocks.STONE, Blocks.DEEPSLATE, Blocks.TUFF);
-		tag(Tags.Blocks.STORAGE_BLOCKS).addTag(Tags.Blocks.STORAGE_BLOCKS_BONE_MEAL).addTag(Tags.Blocks.STORAGE_BLOCKS_COAL)
-				.addTag(Tags.Blocks.STORAGE_BLOCKS_COPPER).addTag(Tags.Blocks.STORAGE_BLOCKS_DIAMOND).addTag(Tags.Blocks.STORAGE_BLOCKS_DRIED_KELP)
-				.addTag(Tags.Blocks.STORAGE_BLOCKS_EMERALD).addTag(Tags.Blocks.STORAGE_BLOCKS_GOLD).addTag(Tags.Blocks.STORAGE_BLOCKS_IRON)
-				.addTag(Tags.Blocks.STORAGE_BLOCKS_LAPIS).addTag(Tags.Blocks.STORAGE_BLOCKS_NETHERITE).addTag(Tags.Blocks.STORAGE_BLOCKS_RAW_COPPER)
-				.addTag(Tags.Blocks.STORAGE_BLOCKS_RAW_GOLD).addTag(Tags.Blocks.STORAGE_BLOCKS_RAW_IRON).addTag(Tags.Blocks.STORAGE_BLOCKS_REDSTONE)
-				.addTag(Tags.Blocks.STORAGE_BLOCKS_SLIME).addTag(Tags.Blocks.STORAGE_BLOCKS_WHEAT);
+		tag(Tags.Blocks.STORAGE_BLOCKS).forceAddTag(Tags.Blocks.STORAGE_BLOCKS_BONE_MEAL).forceAddTag(Tags.Blocks.STORAGE_BLOCKS_COAL)
+				.forceAddTag(Tags.Blocks.STORAGE_BLOCKS_COPPER).forceAddTag(Tags.Blocks.STORAGE_BLOCKS_DIAMOND).forceAddTag(Tags.Blocks.STORAGE_BLOCKS_DRIED_KELP)
+				.forceAddTag(Tags.Blocks.STORAGE_BLOCKS_EMERALD).forceAddTag(Tags.Blocks.STORAGE_BLOCKS_GOLD).forceAddTag(Tags.Blocks.STORAGE_BLOCKS_IRON)
+				.forceAddTag(Tags.Blocks.STORAGE_BLOCKS_LAPIS).forceAddTag(Tags.Blocks.STORAGE_BLOCKS_NETHERITE).forceAddTag(Tags.Blocks.STORAGE_BLOCKS_RAW_COPPER)
+				.forceAddTag(Tags.Blocks.STORAGE_BLOCKS_RAW_GOLD).forceAddTag(Tags.Blocks.STORAGE_BLOCKS_RAW_IRON).forceAddTag(Tags.Blocks.STORAGE_BLOCKS_REDSTONE)
+				.forceAddTag(Tags.Blocks.STORAGE_BLOCKS_SLIME).forceAddTag(Tags.Blocks.STORAGE_BLOCKS_WHEAT);
 		tag(Tags.Blocks.STORAGE_BLOCKS_BONE_MEAL).add(Blocks.BONE_BLOCK);
 		tag(Tags.Blocks.STORAGE_BLOCKS_COAL).add(Blocks.COAL_BLOCK);
 		tag(Tags.Blocks.STORAGE_BLOCKS_COPPER).add(Blocks.COPPER_BLOCK);

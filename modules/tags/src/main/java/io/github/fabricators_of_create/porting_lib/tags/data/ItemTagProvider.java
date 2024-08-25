@@ -29,7 +29,7 @@ public final class ItemTagProvider extends FabricTagProvider.ItemTagProvider {
 		copy(Tags.Blocks.BARRELS_WOODEN, Tags.Items.BARRELS_WOODEN);
 		tag(Tags.Items.BONES).add(Items.BONE);
 		copy(Tags.Blocks.BOOKSHELVES, Tags.Items.BOOKSHELVES);
-		tag(Tags.Items.BRICKS).addTag(Tags.Items.BRICKS_NORMAL).addTag(Tags.Items.BRICKS_NETHER);
+		tag(Tags.Items.BRICKS).forceAddTag(Tags.Items.BRICKS_NORMAL).forceAddTag(Tags.Items.BRICKS_NETHER);
 		tag(Tags.Items.BRICKS_NORMAL).add(Items.BRICK);
 		tag(Tags.Items.BRICKS_NETHER).add(Items.NETHER_BRICK);
 		tag(Tags.Items.BUCKETS_EMPTY).add(Items.BUCKET);
@@ -38,7 +38,7 @@ public final class ItemTagProvider extends FabricTagProvider.ItemTagProvider {
 		tag(Tags.Items.BUCKETS_MILK).add(Items.MILK_BUCKET);
 		tag(Tags.Items.BUCKETS_POWDER_SNOW).add(Items.POWDER_SNOW_BUCKET);
 		tag(Tags.Items.BUCKETS_ENTITY_WATER).add(Items.AXOLOTL_BUCKET, Items.COD_BUCKET, Items.PUFFERFISH_BUCKET, Items.TADPOLE_BUCKET, Items.TROPICAL_FISH_BUCKET, Items.SALMON_BUCKET);
-		tag(Tags.Items.BUCKETS).addTag(Tags.Items.BUCKETS_EMPTY).addTag(Tags.Items.BUCKETS_WATER).addTag(Tags.Items.BUCKETS_LAVA).addTag(Tags.Items.BUCKETS_MILK).addTag(Tags.Items.BUCKETS_POWDER_SNOW).addTag(Tags.Items.BUCKETS_ENTITY_WATER);
+		tag(Tags.Items.BUCKETS).forceAddTag(Tags.Items.BUCKETS_EMPTY).forceAddTag(Tags.Items.BUCKETS_WATER).forceAddTag(Tags.Items.BUCKETS_LAVA).forceAddTag(Tags.Items.BUCKETS_MILK).forceAddTag(Tags.Items.BUCKETS_POWDER_SNOW).forceAddTag(Tags.Items.BUCKETS_ENTITY_WATER);
 		copy(Tags.Blocks.BUDDING_BLOCKS, Tags.Items.BUDDING_BLOCKS);
 		copy(Tags.Blocks.BUDS, Tags.Items.BUDS);
 		copy(Tags.Blocks.CHAINS, Tags.Items.CHAINS);
@@ -60,7 +60,7 @@ public final class ItemTagProvider extends FabricTagProvider.ItemTagProvider {
 				.add(Items.CYAN_CONCRETE_POWDER).add(Items.PURPLE_CONCRETE_POWDER).add(Items.BLUE_CONCRETE_POWDER)
 				.add(Items.BROWN_CONCRETE_POWDER).add(Items.GREEN_CONCRETE_POWDER).add(Items.RED_CONCRETE_POWDER)
 				.add(Items.BLACK_CONCRETE_POWDER);
-		tag(Tags.Items.CROPS).addTag(Tags.Items.CROPS_BEETROOT).addTag(Tags.Items.CROPS_CARROT).addTag(Tags.Items.CROPS_NETHER_WART).addTag(Tags.Items.CROPS_POTATO).addTag(Tags.Items.CROPS_WHEAT);
+		tag(Tags.Items.CROPS).forceAddTag(Tags.Items.CROPS_BEETROOT).forceAddTag(Tags.Items.CROPS_CARROT).forceAddTag(Tags.Items.CROPS_NETHER_WART).forceAddTag(Tags.Items.CROPS_POTATO).forceAddTag(Tags.Items.CROPS_WHEAT);
 		tag(Tags.Items.CROPS_BEETROOT).add(Items.BEETROOT);
 		tag(Tags.Items.CROPS_CARROT).add(Items.CARROT);
 		tag(Tags.Items.CROPS_NETHER_WART).add(Items.NETHER_WART);
@@ -79,13 +79,13 @@ public final class ItemTagProvider extends FabricTagProvider.ItemTagProvider {
 		addColored(Tags.Items.DYED, "{color}_terracotta");
 		addColored(Tags.Items.DYED, "{color}_wool");
 		addColoredTags(tag(Tags.Items.DYED)::addTag, Tags.Items.DYED);
-		tag(Tags.Items.DUSTS).addTag(Tags.Items.DUSTS_GLOWSTONE).addTag(Tags.Items.DUSTS_REDSTONE);
+		tag(Tags.Items.DUSTS).forceAddTag(Tags.Items.DUSTS_GLOWSTONE).forceAddTag(Tags.Items.DUSTS_REDSTONE);
 		tag(Tags.Items.DUSTS_GLOWSTONE).add(Items.GLOWSTONE_DUST);
 		tag(Tags.Items.DUSTS_REDSTONE).add(Items.REDSTONE);
 		addColored(Tags.Items.DYES, "{color}_dye");
 		addColoredTags(tag(Tags.Items.DYES)::addTag, Tags.Items.DYES);
 		tag(Tags.Items.EGGS).add(Items.EGG);
-		tag(Tags.Items.ENCHANTING_FUELS).addTag(Tags.Items.GEMS_LAPIS);
+		tag(Tags.Items.ENCHANTING_FUELS).forceAddTag(Tags.Items.GEMS_LAPIS);
 		copy(Tags.Blocks.END_STONES, Tags.Items.END_STONES);
 		tag(Tags.Items.ENDER_PEARLS).add(Items.ENDER_PEARL);
 		tag(Tags.Items.FEATHERS).add(Items.FEATHER);
@@ -109,11 +109,11 @@ public final class ItemTagProvider extends FabricTagProvider.ItemTagProvider {
 		tag(Tags.Items.FOODS_FOOD_POISONING).add(Items.POISONOUS_POTATO, Items.PUFFERFISH, Items.SPIDER_EYE, Items.CHICKEN, Items.ROTTEN_FLESH);
 		tag(Tags.Items.FOODS)
 				.add(Items.BAKED_POTATO, Items.PUMPKIN_PIE, Items.HONEY_BOTTLE, Items.OMINOUS_BOTTLE, Items.DRIED_KELP)
-				.addTag(Tags.Items.FOODS_FRUITS).addTag(Tags.Items.FOODS_VEGETABLES).addTag(Tags.Items.FOODS_BERRIES).addTag(Tags.Items.FOODS_BREADS).addTag(Tags.Items.FOODS_COOKIES)
-						.addTag(Tags.Items.FOODS_RAW_MEATS).addTag(Tags.Items.FOODS_RAW_FISHES).addTag(Tags.Items.FOODS_COOKED_MEATS).addTag(Tags.Items.FOODS_COOKED_FISHES)
-						.addTag(Tags.Items.FOODS_SOUPS).addTag(Tags.Items.FOODS_CANDIES)
-						.addTag(Tags.Items.FOODS_EDIBLE_WHEN_PLACED).addTag(Tags.Items.FOODS_FOOD_POISONING);
-		tag(Tags.Items.GEMS).addTag(Tags.Items.GEMS_AMETHYST).addTag(Tags.Items.GEMS_DIAMOND).addTag(Tags.Items.GEMS_EMERALD).addTag(Tags.Items.GEMS_LAPIS).addTag(Tags.Items.GEMS_PRISMARINE).addTag(Tags.Items.GEMS_QUARTZ);
+				.forceAddTag(Tags.Items.FOODS_FRUITS).forceAddTag(Tags.Items.FOODS_VEGETABLES).forceAddTag(Tags.Items.FOODS_BERRIES).forceAddTag(Tags.Items.FOODS_BREADS).forceAddTag(Tags.Items.FOODS_COOKIES)
+						.forceAddTag(Tags.Items.FOODS_RAW_MEATS).forceAddTag(Tags.Items.FOODS_RAW_FISHES).forceAddTag(Tags.Items.FOODS_COOKED_MEATS).forceAddTag(Tags.Items.FOODS_COOKED_FISHES)
+						.forceAddTag(Tags.Items.FOODS_SOUPS).forceAddTag(Tags.Items.FOODS_CANDIES)
+						.forceAddTag(Tags.Items.FOODS_EDIBLE_WHEN_PLACED).forceAddTag(Tags.Items.FOODS_FOOD_POISONING);
+		tag(Tags.Items.GEMS).forceAddTag(Tags.Items.GEMS_AMETHYST).forceAddTag(Tags.Items.GEMS_DIAMOND).forceAddTag(Tags.Items.GEMS_EMERALD).forceAddTag(Tags.Items.GEMS_LAPIS).forceAddTag(Tags.Items.GEMS_PRISMARINE).forceAddTag(Tags.Items.GEMS_QUARTZ);
 		tag(Tags.Items.GEMS_AMETHYST).add(Items.AMETHYST_SHARD);
 		tag(Tags.Items.GEMS_DIAMOND).add(Items.DIAMOND);
 		tag(Tags.Items.GEMS_EMERALD).add(Items.EMERALD);
@@ -130,7 +130,7 @@ public final class ItemTagProvider extends FabricTagProvider.ItemTagProvider {
 		copy(Tags.Blocks.GRAVELS, Tags.Items.GRAVELS);
 		tag(Tags.Items.GUNPOWDERS).add(Items.GUNPOWDER);
 		tag(Tags.Items.HIDDEN_FROM_RECIPE_VIEWERS);
-		tag(Tags.Items.INGOTS).addTag(Tags.Items.INGOTS_COPPER).addTag(Tags.Items.INGOTS_GOLD).addTag(Tags.Items.INGOTS_IRON).addTag(Tags.Items.INGOTS_NETHERITE);
+		tag(Tags.Items.INGOTS).forceAddTag(Tags.Items.INGOTS_COPPER).forceAddTag(Tags.Items.INGOTS_GOLD).forceAddTag(Tags.Items.INGOTS_IRON).forceAddTag(Tags.Items.INGOTS_NETHERITE);
 		tag(Tags.Items.INGOTS_COPPER).add(Items.COPPER_INGOT);
 		tag(Tags.Items.INGOTS_GOLD).add(Items.GOLD_INGOT);
 		tag(Tags.Items.INGOTS_IRON).add(Items.IRON_INGOT);
@@ -144,7 +144,7 @@ public final class ItemTagProvider extends FabricTagProvider.ItemTagProvider {
 				Items.MUSIC_DISC_PRECIPICE);
 		tag(Tags.Items.NETHER_STARS).add(Items.NETHER_STAR);
 		copy(Tags.Blocks.NETHERRACKS, Tags.Items.NETHERRACKS);
-		tag(Tags.Items.NUGGETS).addTag(Tags.Items.NUGGETS_GOLD).addTag(Tags.Items.NUGGETS_IRON);
+		tag(Tags.Items.NUGGETS).forceAddTag(Tags.Items.NUGGETS_GOLD).forceAddTag(Tags.Items.NUGGETS_IRON);
 		tag(Tags.Items.NUGGETS_IRON).add(Items.IRON_NUGGET);
 		tag(Tags.Items.NUGGETS_GOLD).add(Items.GOLD_NUGGET);
 		copy(Tags.Blocks.OBSIDIANS, Tags.Items.OBSIDIANS);
@@ -170,11 +170,11 @@ public final class ItemTagProvider extends FabricTagProvider.ItemTagProvider {
 		copy(Tags.Blocks.ORES_IN_GROUND_STONE, Tags.Items.ORES_IN_GROUND_STONE);
 		copy(Tags.Blocks.PLAYER_WORKSTATIONS_CRAFTING_TABLES, Tags.Items.PLAYER_WORKSTATIONS_CRAFTING_TABLES);
 		copy(Tags.Blocks.PLAYER_WORKSTATIONS_FURNACES, Tags.Items.PLAYER_WORKSTATIONS_FURNACES);
-		tag(Tags.Items.RAW_MATERIALS).addTag(Tags.Items.RAW_MATERIALS_COPPER).addTag(Tags.Items.RAW_MATERIALS_GOLD).addTag(Tags.Items.RAW_MATERIALS_IRON);
+		tag(Tags.Items.RAW_MATERIALS).forceAddTag(Tags.Items.RAW_MATERIALS_COPPER).forceAddTag(Tags.Items.RAW_MATERIALS_GOLD).forceAddTag(Tags.Items.RAW_MATERIALS_IRON);
 		tag(Tags.Items.RAW_MATERIALS_COPPER).add(Items.RAW_COPPER);
 		tag(Tags.Items.RAW_MATERIALS_GOLD).add(Items.RAW_GOLD);
 		tag(Tags.Items.RAW_MATERIALS_IRON).add(Items.RAW_IRON);
-		tag(Tags.Items.RODS).addTag(Tags.Items.RODS_WOODEN).addTag(Tags.Items.RODS_BLAZE).addTag(Tags.Items.RODS_BREEZE);
+		tag(Tags.Items.RODS).forceAddTag(Tags.Items.RODS_WOODEN).forceAddTag(Tags.Items.RODS_BLAZE).forceAddTag(Tags.Items.RODS_BREEZE);
 		tag(Tags.Items.RODS_BLAZE).add(Items.BLAZE_ROD);
 		tag(Tags.Items.RODS_BREEZE).add(Items.BREEZE_ROD);
 		tag(Tags.Items.RODS_WOODEN).add(Items.STICK);
@@ -191,7 +191,7 @@ public final class ItemTagProvider extends FabricTagProvider.ItemTagProvider {
 		copy(Tags.Blocks.SANDSTONE_UNCOLORED_BLOCKS, Tags.Items.SANDSTONE_UNCOLORED_BLOCKS);
 		copy(Tags.Blocks.SANDSTONE_UNCOLORED_SLABS, Tags.Items.SANDSTONE_UNCOLORED_SLABS);
 		copy(Tags.Blocks.SANDSTONE_UNCOLORED_STAIRS, Tags.Items.SANDSTONE_UNCOLORED_STAIRS);
-		tag(Tags.Items.SEEDS).addTag(Tags.Items.SEEDS_BEETROOT).addTag(Tags.Items.SEEDS_MELON).addTag(Tags.Items.SEEDS_PUMPKIN).addTag(Tags.Items.SEEDS_WHEAT);
+		tag(Tags.Items.SEEDS).forceAddTag(Tags.Items.SEEDS_BEETROOT).forceAddTag(Tags.Items.SEEDS_MELON).forceAddTag(Tags.Items.SEEDS_PUMPKIN).forceAddTag(Tags.Items.SEEDS_WHEAT);
 		tag(Tags.Items.SEEDS_BEETROOT).add(Items.BEETROOT_SEEDS);
 		tag(Tags.Items.SEEDS_MELON).add(Items.MELON_SEEDS);
 		tag(Tags.Items.SEEDS_PUMPKIN).add(Items.PUMPKIN_SEEDS);
@@ -237,10 +237,10 @@ public final class ItemTagProvider extends FabricTagProvider.ItemTagProvider {
 		tag(Tags.Items.TOOLS_SHEAR).add(Items.SHEARS);
 		tag(Tags.Items.TOOLS_SPEAR).add(Items.TRIDENT);
 		tag(Tags.Items.TOOLS)
-				.addTag(ItemTags.AXES).addTag(ItemTags.HOES).addTag(ItemTags.PICKAXES).addTag(ItemTags.SHOVELS).addTag(ItemTags.SWORDS)
-				.addTag(Tags.Items.TOOLS_BOW).addTag(Tags.Items.TOOLS_BRUSH).addTag(Tags.Items.TOOLS_CROSSBOW).addTag(Tags.Items.TOOLS_FISHING_ROD).addTag(Tags.Items.TOOLS_SHEAR).addTag(Tags.Items.TOOLS_SHIELD).addTag(Tags.Items.TOOLS_SPEAR);
-		tag(Tags.Items.ARMORS).addTag(ItemTags.HEAD_ARMOR).addTag(ItemTags.CHEST_ARMOR).addTag(ItemTags.LEG_ARMOR).addTag(ItemTags.FOOT_ARMOR);
-		tag(Tags.Items.ENCHANTABLES).addTag(ItemTags.ARMOR_ENCHANTABLE).addTag(ItemTags.EQUIPPABLE_ENCHANTABLE).addTag(ItemTags.WEAPON_ENCHANTABLE).addTag(ItemTags.SWORD_ENCHANTABLE).addTag(ItemTags.MINING_ENCHANTABLE).addTag(ItemTags.MINING_LOOT_ENCHANTABLE).addTag(ItemTags.FISHING_ENCHANTABLE).addTag(ItemTags.TRIDENT_ENCHANTABLE).addTag(ItemTags.BOW_ENCHANTABLE).addTag(ItemTags.CROSSBOW_ENCHANTABLE).addTag(ItemTags.FIRE_ASPECT_ENCHANTABLE).addTag(ItemTags.DURABILITY_ENCHANTABLE).addOptionalTag(ItemTags.MACE_ENCHANTABLE);
+				.forceAddTag(ItemTags.AXES).forceAddTag(ItemTags.HOES).forceAddTag(ItemTags.PICKAXES).forceAddTag(ItemTags.SHOVELS).forceAddTag(ItemTags.SWORDS)
+				.forceAddTag(Tags.Items.TOOLS_BOW).forceAddTag(Tags.Items.TOOLS_BRUSH).forceAddTag(Tags.Items.TOOLS_CROSSBOW).forceAddTag(Tags.Items.TOOLS_FISHING_ROD).forceAddTag(Tags.Items.TOOLS_SHEAR).forceAddTag(Tags.Items.TOOLS_SHIELD).forceAddTag(Tags.Items.TOOLS_SPEAR);
+		tag(Tags.Items.ARMORS).forceAddTag(ItemTags.HEAD_ARMOR).forceAddTag(ItemTags.CHEST_ARMOR).forceAddTag(ItemTags.LEG_ARMOR).forceAddTag(ItemTags.FOOT_ARMOR);
+		tag(Tags.Items.ENCHANTABLES).forceAddTag(ItemTags.ARMOR_ENCHANTABLE).forceAddTag(ItemTags.EQUIPPABLE_ENCHANTABLE).forceAddTag(ItemTags.WEAPON_ENCHANTABLE).forceAddTag(ItemTags.SWORD_ENCHANTABLE).forceAddTag(ItemTags.MINING_ENCHANTABLE).forceAddTag(ItemTags.MINING_LOOT_ENCHANTABLE).forceAddTag(ItemTags.FISHING_ENCHANTABLE).forceAddTag(ItemTags.TRIDENT_ENCHANTABLE).forceAddTag(ItemTags.BOW_ENCHANTABLE).forceAddTag(ItemTags.CROSSBOW_ENCHANTABLE).forceAddTag(ItemTags.FIRE_ASPECT_ENCHANTABLE).forceAddTag(ItemTags.DURABILITY_ENCHANTABLE).addOptionalTag(ItemTags.MACE_ENCHANTABLE);
 
 		// Backwards compat with pre-1.21 tags. Done after so optional tag is last for better readability.
 		// TODO: Remove backwards compat tag entries in 1.22
