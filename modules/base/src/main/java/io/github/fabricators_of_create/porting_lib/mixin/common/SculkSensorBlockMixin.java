@@ -1,6 +1,6 @@
 package io.github.fabricators_of_create.porting_lib.mixin.common;
 
-import io.github.fabricators_of_create.porting_lib.block.CustomExpBlock;
+import io.github.fabricators_of_create.porting_lib.blocks.extensions.CustomExpBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.SculkSensorBlock;
