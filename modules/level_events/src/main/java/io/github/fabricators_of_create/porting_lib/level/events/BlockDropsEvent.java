@@ -3,6 +3,7 @@ package io.github.fabricators_of_create.porting_lib.level.events;
 import com.google.common.base.Preconditions;
 import java.util.List;
 
+import io.github.fabricators_of_create.porting_lib.blocks.extensions.CustomExpBlock;
 import io.github.fabricators_of_create.porting_lib.core.event.CancellableEvent;
 import net.fabricmc.fabric.api.event.Event;
 import net.fabricmc.fabric.api.event.EventFactory;
@@ -12,7 +13,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
-import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.DropExperienceBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
@@ -46,7 +47,7 @@ public class BlockDropsEvent extends BlockEvent implements CancellableEvent {
 	 * @param pos         The position of the broken block
 	 * @param state       The state of the broken block
 	 * @param blockEntity The block entity of the broken block, if available
-	 * @param drops       The list of drops from {@link Block#getDrops}
+	 * @param drops       The list of drops from {@link BlockState#getDrops}
 	 * @param breaker     The entity who broke the block, if any
 	 * @param tool        The tool used to break the block. May be empty
 	 */
@@ -57,7 +58,7 @@ public class BlockDropsEvent extends BlockEvent implements CancellableEvent {
 		this.breaker = breaker;
 		this.tool = tool;
 
-		this.experience = EnchantmentHelper.processBlockExperience(level, tool, state.getExpDrop(level, pos, blockEntity, breaker, tool));
+		this.experience = EnchantmentHelper.processBlockExperience(level, tool, state.getBlock() instanceof DropExperienceBlock block ? ((CustomExpBlock)block).getExpDrop(state, level, pos, blockEntity, breaker, tool) : 0);
 	}
 
 	/**
@@ -96,7 +97,7 @@ public class BlockDropsEvent extends BlockEvent implements CancellableEvent {
 	}
 
 	/**
-	 * Cancels this event, preventing any drops from being spawned and preventing {@link Block#spawnAfterBreak} from being called.
+	 * Cancels this event, preventing any drops from being spawned and preventing {@link BlockState#spawnAfterBreak} from being called.
 	 * <p>
 	 * Also prevents experience from being spawned.
 	 */
