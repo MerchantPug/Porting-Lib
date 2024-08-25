@@ -1,9 +1,0 @@
-{
-  "parent": "block/block",
-  "loader": "porting_lib:obj",
-  "flip-v": true,
-  "model": "porting_lib:models/item/ring.obj",
-  "textures": {
-    "0": "minecraft:block/gold_block"
-  }
-}

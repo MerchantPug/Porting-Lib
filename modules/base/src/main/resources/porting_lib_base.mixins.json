@@ -28,7 +28,6 @@
     "common.ConnectionMixin",
     "common.DataFixersMixin",
     "common.DeadBushBlockMixin",
-    "io.github.fabricators_of_create.porting_lib.blocks.mixin.DropExperienceBlockMixin",
     "common.EnchantmentMenuMixin",
     "common.EnchantmentTableBlockMixin",
     "common.EntityCollisionContextMixin",
