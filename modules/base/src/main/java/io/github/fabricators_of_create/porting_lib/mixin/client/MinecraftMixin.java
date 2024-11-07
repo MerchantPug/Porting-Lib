@@ -1,6 +1,7 @@
 package io.github.fabricators_of_create.porting_lib.mixin.client;
 
-import com.llamalad7.mixinextras.injector.WrapWithCondition;
+import com.llamalad7.mixinextras.injector.v2.WrapWithCondition;
+import com.llamalad7.mixinextras.sugar.Local;
 
 import io.github.fabricators_of_create.porting_lib.block.CustomHitEffectsBlock;
 import io.github.fabricators_of_create.porting_lib.event.common.AddPackFindersEvent;
@@ -21,7 +22,6 @@ import org.spongepowered.asm.mixin.injection.At.Shift;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
@@ -70,7 +70,8 @@ public abstract class MinecraftMixin {
 			at = @At(
 					value = "FIELD",
 					target = "Lnet/minecraft/client/Minecraft;particleEngine:Lnet/minecraft/client/particle/ParticleEngine;",
-					shift = Shift.AFTER
+					shift = Shift.AFTER,
+					ordinal = 0
 			)
 	)
 	public void port_lib$registerParticleManagers(GameConfig gameConfiguration, CallbackInfo ci) {
@@ -99,10 +100,9 @@ public abstract class MinecraftMixin {
 					value = "INVOKE",
 					target = "Lnet/minecraft/world/phys/HitResult;getType()Lnet/minecraft/world/phys/HitResult$Type;"
 			),
-			locals = LocalCapture.CAPTURE_FAILHARD,
 			cancellable = true
 	)
-	private void port_lib$onAttack(CallbackInfoReturnable<Boolean> cir, ItemStack stack, boolean bl) {
+	private void port_lib$onAttack(CallbackInfoReturnable<Boolean> cir, @Local ItemStack stack, @Local boolean bl) {
 		InteractionResult result = InteractEvents.ATTACK.invoker().onAttack((Minecraft) (Object) this, hitResult);
 		if (result != InteractionResult.PASS) {
 			if (result == InteractionResult.SUCCESS) {
@@ -129,12 +129,12 @@ public abstract class MinecraftMixin {
 		return original.call(gameMode, posBlock, directionFacing); // continue to continueDestroyBlock
 	}
 
-	@Inject(method = "runTick", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/GameRenderer;render(Lnet/minecraft/client/DeltaTracker;Z)V", shift = Shift.BEFORE))
+	@Inject(method = "runTick", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/GameRenderer;render(Lnet/minecraft/client/DeltaTracker;Z)V"))
 	private void renderTickStart(CallbackInfo ci) {
 		RenderFrameEvent.PRE.invoker().onRenderFrame(this.timer);
 	}
 
-	@Inject(method = "runTick", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/GameRenderer;render(Lnet/minecraft/client/DeltaTracker;Z)V"))
+	@Inject(method = "runTick", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/GameRenderer;render(Lnet/minecraft/client/DeltaTracker;Z)V", shift = Shift.AFTER))
 	private void renderTickEnd(CallbackInfo ci) {
 		RenderFrameEvent.POST.invoker().onRenderFrame(this.timer);
 	}
@@ -145,10 +145,9 @@ public abstract class MinecraftMixin {
 					value = "INVOKE",
 					target = "Lnet/minecraft/client/player/LocalPlayer;getItemInHand(Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/item/ItemStack;"
 			),
-			locals = LocalCapture.CAPTURE_FAILHARD,
 			cancellable = true
 	)
-	private void port_lib$onStartUseItem(CallbackInfo ci, InteractionHand[] var1, int var2, int var3, InteractionHand hand) {
+	private void port_lib$onStartUseItem(CallbackInfo ci, @Local InteractionHand hand) {
 		InteractionResult result = InteractEvents.USE.invoker().onUse((Minecraft) (Object) this, hitResult, hand);
 		if (result != InteractionResult.PASS) {
 			if (result == InteractionResult.SUCCESS) {

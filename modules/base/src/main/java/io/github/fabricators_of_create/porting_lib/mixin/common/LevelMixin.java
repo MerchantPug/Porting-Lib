@@ -14,6 +14,7 @@ import io.github.fabricators_of_create.porting_lib.event.common.ExplosionEvents;
 import io.github.fabricators_of_create.porting_lib.extensions.extensions.BlockEntityExtensions;
 import io.github.fabricators_of_create.porting_lib.extensions.extensions.LevelExtensions;
 import net.fabricmc.fabric.api.transfer.v1.transaction.base.SnapshotParticipant;
+import net.minecraft.core.Holder;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.server.level.FullChunkStatus;
 import net.minecraft.sounds.SoundEvent;
@@ -154,38 +155,30 @@ public abstract class LevelMixin implements LevelAccessor, LevelExtensions {
 			method = "updateNeighbourForOutputSignal",
 			at = @At(
 					value = "INVOKE",
-					target = "Lnet/minecraft/world/level/Level;getBlockState(Lnet/minecraft/core/BlockPos;)Lnet/minecraft/world/level/block/state/BlockState;",
-					shift = Shift.BY,
-					by = 2,
+					target = "Lnet/minecraft/world/level/block/state/BlockState;is(Lnet/minecraft/world/level/block/Block;)Z",
 					ordinal = 0
-			),
-			locals = LocalCapture.CAPTURE_FAILHARD
+			)
 	)
 	public void port_lib$updateNeighbourForOutputSignal(BlockPos pos, Block block, CallbackInfo ci,
-														Iterator<?> var3, Direction direction, BlockPos offset,
-														BlockState state) {
+														@Local(ordinal = 1) BlockPos offset, @Local BlockState state) {
 		if (state.getBlock() instanceof NeighborChangeListeningBlock listener) {
 			listener.onNeighborChange(state, this, offset, pos);
 		}
 	}
 
-//	@Inject( TODO: PORT
-//			method = "explode(Lnet/minecraft/world/entity/Entity;Lnet/minecraft/world/damagesource/DamageSource;Lnet/minecraft/world/level/ExplosionDamageCalculator;DDDFZLnet/minecraft/world/level/Level$ExplosionInteraction;ZLnet/minecraft/core/particles/ParticleOptions;Lnet/minecraft/core/particles/ParticleOptions;Lnet/minecraft/sounds/SoundEvent;)Lnet/minecraft/world/level/Explosion;",
-//			at = @At(
-//					value = "INVOKE",
-//					target = "Lnet/minecraft/world/level/Explosion;explode()V"
-//			),
-//			locals = LocalCapture.CAPTURE_FAILHARD,
-//			cancellable = true
-//	)
-//	public void port_lib$onStartExplosion(Entity entity, DamageSource damageSource, ExplosionDamageCalculator explosionDamageCalculator,
-//										  double d, double e, double f, float g, boolean bl, Level.ExplosionInteraction explosionInteraction,
-//										  boolean bl2, ParticleOptions particleOptions, ParticleOptions particleOptions2, SoundEvent soundEvent,
-//										  CallbackInfoReturnable<Explosion> cir, @Local(ordinal = 0) Explosion explosion) {
-//		if (ExplosionEvents.START.invoker().onExplosionStart((Level) (Object) this, explosion)) {
-//			cir.setReturnValue(explosion);
-//		}
-//	}
+	@Inject(
+			method = "explode(Lnet/minecraft/world/entity/Entity;Lnet/minecraft/world/damagesource/DamageSource;Lnet/minecraft/world/level/ExplosionDamageCalculator;DDDFZLnet/minecraft/world/level/Level$ExplosionInteraction;ZLnet/minecraft/core/particles/ParticleOptions;Lnet/minecraft/core/particles/ParticleOptions;Lnet/minecraft/core/Holder;)Lnet/minecraft/world/level/Explosion;",
+			at = @At(
+					value = "INVOKE",
+					target = "Lnet/minecraft/world/level/Explosion;explode()V"
+			),
+			cancellable = true
+	)
+	public void port_lib$onStartExplosion(Entity source, DamageSource damageSource, ExplosionDamageCalculator damageCalculator, double x, double y, double z, float radius, boolean fire, Level.ExplosionInteraction explosionInteraction, boolean spawnParticles, ParticleOptions smallExplosionParticles, ParticleOptions largeExplosionParticles, Holder<SoundEvent> explosionSound, CallbackInfoReturnable<Explosion> cir, @Local(ordinal = 0) Explosion explosion) {
+		if (ExplosionEvents.START.invoker().onExplosionStart((Level) (Object) this, explosion)) {
+			cir.setReturnValue(explosion);
+		}
+	}
 
 	@Inject(method = "tickBlockEntities", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/profiling/ProfilerFiller;push(Ljava/lang/String;)V", shift = Shift.AFTER))
 	public void port_lib$pendingBlockEntities(CallbackInfo ci) {

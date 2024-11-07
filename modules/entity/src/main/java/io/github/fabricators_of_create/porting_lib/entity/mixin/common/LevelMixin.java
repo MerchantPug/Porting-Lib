@@ -1,5 +1,7 @@
 package io.github.fabricators_of_create.porting_lib.entity.mixin.common;
 
+import com.llamalad7.mixinextras.sugar.Local;
+
 import io.github.fabricators_of_create.porting_lib.entity.PartEntity;
 import io.github.fabricators_of_create.porting_lib.entity.ext.LevelExt;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
@@ -28,10 +30,9 @@ public class LevelMixin implements LevelExt {
 
 	@Inject(
 			method = "getEntities(Lnet/minecraft/world/entity/Entity;Lnet/minecraft/world/phys/AABB;Ljava/util/function/Predicate;)Ljava/util/List;",
-			at = @At("TAIL"),
-			locals = LocalCapture.CAPTURE_FAILHARD
+			at = @At("TAIL")
 	)
-	private void appendPartEntitiesPredicate(@Nullable Entity entity, AABB area, Predicate<? super Entity> predicate, CallbackInfoReturnable<List<Entity>> cir, List<Entity> list) {
+	private void appendPartEntitiesPredicate(@Nullable Entity entity, AABB area, Predicate<? super Entity> predicate, CallbackInfoReturnable<List<Entity>> cir, @Local List<Entity> list) {
 		for (PartEntity<?> p : this.getPartEntities()) {
 			if (p != entity && p.getBoundingBox().intersects(area) && predicate.test(p)) {
 				list.add(p);
@@ -41,10 +42,9 @@ public class LevelMixin implements LevelExt {
 
 	@Inject(
 			method = "getEntities(Lnet/minecraft/world/level/entity/EntityTypeTest;Lnet/minecraft/world/phys/AABB;Ljava/util/function/Predicate;)Ljava/util/List;",
-			at = @At("TAIL"),
-			locals = LocalCapture.CAPTURE_FAILHARD
+			at = @At("TAIL")
 	)
-	private <T extends Entity> void appendPartEntitiesTypeTest(EntityTypeTest<Entity, T> test, AABB area, Predicate<? super T> predicate, CallbackInfoReturnable<List<T>> cir, List<Entity> list) {
+	private <T extends Entity> void appendPartEntitiesTypeTest(EntityTypeTest<Entity, T> test, AABB area, Predicate<? super T> predicate, CallbackInfoReturnable<List<T>> cir, @Local List<Entity> list) {
 		for (PartEntity<?> p : this.getPartEntities()) {
 			T t = test.tryCast(p);
 			if (t != null && t.getBoundingBox().intersects(area) && predicate.test(t)) {

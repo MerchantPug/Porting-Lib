@@ -1,1 +1,1 @@
-portingLib.addModuleDependencies(["blocks"])
+portingLib.addModuleDependency("blocks")

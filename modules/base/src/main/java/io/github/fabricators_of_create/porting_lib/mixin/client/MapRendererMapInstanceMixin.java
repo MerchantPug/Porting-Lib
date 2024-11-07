@@ -3,6 +3,8 @@ package io.github.fabricators_of_create.porting_lib.mixin.client;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import com.llamalad7.mixinextras.sugar.Local;
+
 import io.github.fabricators_of_create.porting_lib.render.MapDecorationIterator;
 
 import org.joml.Matrix4f;
@@ -47,12 +49,10 @@ public abstract class MapRendererMapInstanceMixin {
 					target = "Ljava/util/Iterator;hasNext()Z",
 					shift = At.Shift.BY,
 					by = 3
-			),
-			locals = LocalCapture.CAPTURE_FAILHARD
+			)
 	)
 	private void port_Lib$getCurrentIndex(PoseStack poseStack, MultiBufferSource bufferSource, boolean active,
-										  int packedLight, CallbackInfo ci, int i, int j, float f, Matrix4f matrix4f,
-										  VertexConsumer vertexConsumer, int k, Iterator<?> var11) {
+										  int packedLight, CallbackInfo ci, @Local(ordinal = 3) int k) {
 		this.port_Lib$cached_index.set(k);
 	}
 
