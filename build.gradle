@@ -211,7 +211,7 @@ subprojects {
 	publishing {
 		repositories {
 			maven {
-				name = "devOS"
+				name = "Greenhouse"
 				String mavenType = System.getenv("RELEASE") == "true" ? "releases" : "snapshots"
 				url = "https://repo.greenhouse.house/$mavenType/"
 				credentials {
