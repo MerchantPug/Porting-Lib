@@ -248,7 +248,7 @@ public class UnbakedGeometryHelper {
 		// to replicate the way the ModelState transform is applied in the FaceBakery by moving the vertices such that
 		// the negative corner acts as the block center
 		Transformation transform = modelState.getRotation().applyOrigin(new Vector3f(.5F, .5F, .5F));
-		return QuadTransformers.applying(transform.compose(rootTransform).compose(transform.inverse()));
+		return FabricQuadTransformers.applying(transform.compose(rootTransform).compose(transform.inverse()));
 	}
 
 	/**

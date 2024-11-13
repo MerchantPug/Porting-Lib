@@ -37,7 +37,7 @@ public class ElementsModel extends SimpleUnbakedGeometry<ElementsModel> {
 		// If there is a root transform, undo the ModelState transform, apply it, then re-apply the ModelState transform.
 		// This is necessary because of things like UV locking, which should only respond to the ModelState, and as such
 		// that is the only transform that should be applied during face bake.
-		var postTransform = QuadTransformers.empty();
+		var postTransform = FabricQuadTransformers.empty();
 		var rootTransform = context.getRootTransform();
 		if (!rootTransform.isIdentity())
 			postTransform = UnbakedGeometryHelper.applyRootTransform(modelState, rootTransform);
