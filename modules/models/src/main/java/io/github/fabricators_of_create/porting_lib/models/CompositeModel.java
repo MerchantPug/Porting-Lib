@@ -7,19 +7,22 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import java.util.function.Function;
+import java.util.function.Supplier;
 
+import io.github.fabricators_of_create.porting_lib.core.PortingLib;
 import io.github.fabricators_of_create.porting_lib.models.geometry.IGeometryBakingContext;
 import io.github.fabricators_of_create.porting_lib.models.geometry.IGeometryLoader;
 import io.github.fabricators_of_create.porting_lib.models.geometry.IUnbakedGeometry;
-import net.minecraft.client.renderer.RenderType;
+import io.github.fabricators_of_create.porting_lib.render_types.RenderTypeGroup;
+import net.fabricmc.fabric.api.renderer.v1.render.RenderContext;
 import net.minecraft.client.renderer.block.model.BakedQuad;
 import net.minecraft.client.renderer.block.model.BlockModel;
 import net.minecraft.client.renderer.block.model.ItemOverrides;
@@ -118,21 +121,28 @@ public class CompositeModel implements IUnbakedGeometry<CompositeModel> {
 		@Override
 		public List<BakedQuad> getQuads(@Nullable BlockState state, @Nullable Direction side, RandomSource rand/*, ModelData data, @Nullable RenderType renderType*/) {
 			List<List<BakedQuad>> quadLists = new ArrayList<>();
+			PortingLib.LOGGER.warn("Called CompositeModel getQuads which does not support multi render type support: " + Arrays.toString(Thread.currentThread().getStackTrace()));
 			for (Map.Entry<String, BakedModel> entry : children.entrySet()) {
-//				if (renderType == null || (state != null && entry.getValue().getRenderTypes(state, rand, data).contains(renderType))) { TODO: PORT
+//				if (renderType == null || (state != null && entry.getValue().getRenderTypes(state, rand, data).contains(renderType))) {
 					quadLists.add(entry.getValue().getQuads(state, side, rand/*, CompositeModel.Data.resolve(data, entry.getKey()), renderType*/));
 //				}
 			}
 			return ConcatenatedListView.of(quadLists);
 		}
 
-//		@Override
-//		public ModelData getModelData(BlockAndTintGetter level, BlockPos pos, BlockState state, ModelData modelData) {
-//			var builder = Data.builder();
-//			for (var entry : children.entrySet())
-//				builder.with(entry.getKey(), entry.getValue().getModelData(level, pos, state, Data.resolve(modelData, entry.getKey())));
-//			return modelData.derive().with(Data.PROPERTY, builder.build()).build();
-//		}
+		@Override
+		public void emitBlockQuads(BlockAndTintGetter blockView, BlockState state, BlockPos pos, Supplier<RandomSource> randomSupplier, RenderContext context) {
+			for (Map.Entry<String, BakedModel> entry : children.entrySet()) {
+				entry.getValue().emitBlockQuads(blockView, state, pos, randomSupplier, context);
+			}
+		}
+
+		@Override
+		public void emitItemQuads(ItemStack stack, Supplier<RandomSource> randomSupplier, RenderContext context) {
+			for (Map.Entry<String, BakedModel> entry : children.entrySet()) {
+				entry.getValue().emitItemQuads(stack, randomSupplier, context);
+			}
+		}
 
 		@Override
 		public boolean useAmbientOcclusion() {

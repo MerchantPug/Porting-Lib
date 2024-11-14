@@ -1,0 +1,12 @@
+
+{
+  "schemaVersion": 1,
+  "id": "porting_lib_render_types",
+  "version": "${version}",
+  "name": "Porting Lib Render Types",
+  "entrypoints": {
+    "client": [
+      "io.github.fabricators_of_create.porting_lib.render_types.PortingLibRenderTypes::init"
+    ]
+  }
+}
