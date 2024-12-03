@@ -9,7 +9,7 @@
   "mixins": [
     "client.BoatRendererMixin",
     "client.CreateWorldScreenMixin",
-    "client.PackRepositoryMixin",
+    "common.PackRepositoryMixin",
     "common.AbstractMinecartMixin",
     "common.AbstractSkeletonMixin",
     "common.AnvilMenuMixin",
