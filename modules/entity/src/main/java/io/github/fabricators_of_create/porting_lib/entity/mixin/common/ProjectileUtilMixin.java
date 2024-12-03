@@ -16,10 +16,7 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
-import java.util.Iterator;
-import java.util.Optional;
 import java.util.function.Predicate;
 
 @Mixin(ProjectileUtil.class)
@@ -33,7 +30,7 @@ public abstract class ProjectileUtilMixin {
 			at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/Entity;getRootVehicle()Lnet/minecraft/world/entity/Entity;", ordinal = 1)
 	)
 	private static Entity port_lib$rider(Entity original) {
-		return port_lib$canRiderInteract ? original : null;
+		return port_lib$canRiderInteract ? null : original;
 	}
 
 	@Inject(
@@ -41,6 +38,6 @@ public abstract class ProjectileUtilMixin {
 			at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/Entity;getRootVehicle()Lnet/minecraft/world/entity/Entity;", ordinal = 0, shift = At.Shift.BEFORE)
 	)
 	private static void port_lib$result(Entity shooter, Vec3 startVec, Vec3 endVec, AABB boundingBox, Predicate<Entity> filter, double distance, CallbackInfoReturnable<EntityHitResult> cir, @Local(ordinal = 1) Entity entity) {
-		port_lib$canRiderInteract = !entity.canRiderInteract();
+		port_lib$canRiderInteract = entity != null && entity.canRiderInteract();
 	}
 }
