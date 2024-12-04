@@ -65,6 +65,7 @@ public class EffectRenderingInventoryScreenMixin {
 
 	@WrapWithCondition(method = "renderLabels", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/GuiGraphics;drawString(Lnet/minecraft/client/gui/Font;Lnet/minecraft/network/chat/Component;III)I"))
 	private boolean cancelInventoryText(GuiGraphics graphics, Font renderer, Component text, int x, int y, int color, @Share("custom") LocalRef<Boolean> cancelled) {
-		return !cancelled.get();
+		return true;
+        // return !cancelled.get(); // TODO: Port
 	}
 }
