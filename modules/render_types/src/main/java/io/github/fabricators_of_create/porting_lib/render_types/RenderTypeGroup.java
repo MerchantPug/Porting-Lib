@@ -1,5 +1,8 @@
 package io.github.fabricators_of_create.porting_lib.render_types;
 
+import net.fabricmc.fabric.api.renderer.v1.RendererAccess;
+import net.fabricmc.fabric.api.renderer.v1.material.BlendMode;
+import net.fabricmc.fabric.api.renderer.v1.material.RenderMaterial;
 import net.minecraft.client.renderer.RenderType;
 
 /**
@@ -8,10 +11,14 @@ import net.minecraft.client.renderer.RenderType;
  * {@code entityFabulous} may support custom render targets and other aspects of the fabulous pipeline, or can otherwise
  * be the same as {@code entity}.
  */
-public record RenderTypeGroup(RenderType block, RenderType entity, RenderType entityFabulous) {
+public record RenderTypeGroup(RenderType block, RenderType entity, RenderType entityFabulous, RenderMaterial material) {
 	public RenderTypeGroup {
 		if ((block == null) != (entity == null) || (block == null) != (entityFabulous == null))
 			throw new IllegalArgumentException("The render types in a group must either be all null, or all non-null.");
+	}
+
+	public RenderTypeGroup(RenderType block, RenderType entity, RenderType entityFabulous) {
+		this(block, entity, entityFabulous, RendererAccess.INSTANCE.getRenderer().materialFinder().blendMode(BlendMode.fromRenderLayer(block)).find());
 	}
 
 	public RenderTypeGroup(RenderType block, RenderType entity) {
