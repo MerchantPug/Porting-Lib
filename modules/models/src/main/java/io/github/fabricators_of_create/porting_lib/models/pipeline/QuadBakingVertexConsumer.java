@@ -140,7 +140,7 @@ public class QuadBakingVertexConsumer implements VertexConsumer {
 			throw new IllegalStateException("Not enough vertices available. Vertices in buffer: " + vertexIndex);
 		}
 
-		BakedQuad quad = new BakedQuad(quadData.clone(), tintIndex, direction, sprite, shade, lightEmission, hasAmbientOcclusion);
+		BakedQuad quad = new BakedQuad(quadData.clone(), tintIndex, direction, sprite, shade/*, lightEmission, hasAmbientOcclusion*/);
 		vertexIndex = 0;
 		building = false;
 		Arrays.fill(quadData, 0);
