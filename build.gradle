@@ -214,7 +214,7 @@ subprojects {
 			maven {
 				name = "devOS"
 				String mavenType = System.getenv("RELEASE") == "true" ? "releases" : "snapshots"
-				url = "https://mvn.devos.one/$mavenType/"
+				url = "https://repo.greenhouse.house/$mavenType/"
 				credentials {
 					username = System.getenv("MAVEN_USER")
 					password = System.getenv("MAVEN_PASS")
