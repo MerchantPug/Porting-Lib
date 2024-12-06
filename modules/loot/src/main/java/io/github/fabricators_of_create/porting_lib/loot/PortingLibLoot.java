@@ -4,8 +4,6 @@ import java.util.List;
 
 import com.mojang.serialization.MapCodec;
 
-import com.mojang.serialization.MapCodec;
-
 import io.github.fabricators_of_create.porting_lib.core.PortingLib;
 import io.github.fabricators_of_create.porting_lib.loot.extensions.LootTableBuilderExtensions;
 import io.github.fabricators_of_create.porting_lib.util.RegistryBuilder;
@@ -23,7 +21,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.storage.loot.LootContext;
 
 public class PortingLibLoot implements ModInitializer {
-	public static final ResourceKey<Registry<MapCodec<? extends IGlobalLootModifier>>> GLOBAL_LOOT_MODIFIER_SERIALIZERS_KEY = PortingLib.key("global_loot_modifier_serializers");
+	public static final ResourceKey<Registry<MapCodec<? extends IGlobalLootModifier>>> GLOBAL_LOOT_MODIFIER_SERIALIZERS_KEY = ResourceKey.createRegistryKey(PortingLib.id("global_loot_modifier_serializers"));
 	public static final Registry<MapCodec<? extends IGlobalLootModifier>> GLOBAL_LOOT_MODIFIER_SERIALIZERS = new RegistryBuilder<>(GLOBAL_LOOT_MODIFIER_SERIALIZERS_KEY).create();
 	public static final ResourceLocation LAST = PortingLib.id("last");
 
@@ -39,6 +37,24 @@ public class PortingLibLoot implements ModInitializer {
 		LootTableEvents.MODIFY.register(LAST,
 				(key, builder, source, provider) -> ((LootTableBuilderExtensions) builder).port_lib$setId(key.location())
 		);
+	}
+
+	/**
+	 * All loot table drops should be passed to this function so that mod added effects
+	 * (e.g. smelting enchantments) can be processed.
+	 *
+	 * @param list The loot generated
+	 * @param context The loot context that generated that loot
+	 * @return The modified list
+	 *
+	 * @deprecated Use {@link #modifyLoot(ResourceLocation, ObjectArrayList, LootContext)} instead.
+	 *
+	 * @implNote This method will use the {@linkplain LootTableIdCondition#UNKNOWN_LOOT_TABLE
+	 *           unknown loot table marker} when redirecting.
+	 */
+	@Deprecated
+	public static List<ItemStack> modifyLoot(List<ItemStack> list, LootContext context) {
+		return modifyLoot(LootTableIdCondition.UNKNOWN_LOOT_TABLE, ObjectArrayList.wrap((ItemStack[]) list.toArray()), context);
 	}
 
 	/**
