@@ -139,7 +139,7 @@ allprojects {
 		Map<String, ?> properties = [
 				version: version,
 				loader_version: loader_version,
-				fabric_api_version: fabric_api_version,
+				fabric_api_dependency: fabric_api_dependency,
 				minecraft_dependency: minecraft_dependency,
 				java_version: sourceCompatibility,
 
