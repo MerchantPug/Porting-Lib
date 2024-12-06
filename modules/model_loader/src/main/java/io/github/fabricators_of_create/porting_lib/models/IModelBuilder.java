@@ -8,6 +8,7 @@ import io.github.fabricators_of_create.porting_lib.textures.UnitTextureAtlasSpri
 import net.fabricmc.fabric.api.renderer.v1.RendererAccess;
 import net.fabricmc.fabric.api.renderer.v1.material.BlendMode;
 import net.fabricmc.fabric.api.renderer.v1.material.RenderMaterial;
+import net.fabricmc.fabric.api.renderer.v1.mesh.Mesh;
 import net.fabricmc.fabric.api.renderer.v1.mesh.MeshBuilder;
 import net.fabricmc.fabric.api.renderer.v1.mesh.QuadView;
 import net.minecraft.client.renderer.block.model.BakedQuad;
@@ -69,7 +70,7 @@ public interface IModelBuilder<T extends IModelBuilder<T>> {
 			this.overrides = overrides;
 			this.particle = particle;
 			this.renderTypes = renderTypes;
-			this.material = RendererAccess.INSTANCE.getRenderer().materialFinder().blendMode(BlendMode.fromRenderLayer(renderTypes.block())).find();
+			this.material = renderTypes.material();
 		}
 
 		@Override
