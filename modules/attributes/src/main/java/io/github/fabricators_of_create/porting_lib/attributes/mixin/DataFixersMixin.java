@@ -1,13 +1,10 @@
 package io.github.fabricators_of_create.porting_lib.attributes.mixin;
 
-import com.google.common.collect.ImmutableMap;
 import com.mojang.datafixers.DataFixerBuilder;
 
 import com.mojang.datafixers.schemas.Schema;
 
 import net.minecraft.util.datafix.DataFixers;
-
-import net.minecraft.util.datafix.fixes.AttributesRename;
 
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -28,7 +25,7 @@ public abstract class DataFixersMixin {
 
 	@Shadow
 	protected static UnaryOperator<String> createRenamer(Map<String, String> map) {
-		return null;
+		throw new RuntimeException("");
 	}
 
 	// Honestly we don't really need this, but it's nice for an end user.
@@ -36,14 +33,14 @@ public abstract class DataFixersMixin {
 	private static void addReachFixer(DataFixerBuilder dataFixerBuilder, CallbackInfo ci) {
 		// Neo: rename neo attributes to new MC attributes
 		// Happens in 24w03a
-		Schema neoSchema3804 = dataFixerBuilder.addSchema(3804, SAME_NAMESPACED);
-		dataFixerBuilder.addFixer(new AttributesRename(
-				neoSchema3804,
-				"(Neo) Rename reach attributes to vanilla",
-				createRenamer(ImmutableMap.of(
-						"neoforge:entity_reach", "minecraft:player.entity_interaction_range",
-						"neoforge:block_reach", "minecraft:player.block_interaction_range"
-				))
-		));
+//		Schema neoSchema3804 = dataFixerBuilder.addSchema(3804, SAME_NAMESPACED);
+//		dataFixerBuilder.addFixer(new AttributesRename(
+//				neoSchema3804,
+//				"(Neo) Rename reach attributes to vanilla",
+//				createRenamer(ImmutableMap.of(
+//						"neoforge:entity_reach", "minecraft:player.entity_interaction_range",
+//						"neoforge:block_reach", "minecraft:player.block_interaction_range"
+//				))
+//		));
 	}
 }
