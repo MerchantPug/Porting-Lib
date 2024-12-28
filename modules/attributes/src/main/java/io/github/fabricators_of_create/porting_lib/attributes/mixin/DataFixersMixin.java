@@ -33,6 +33,8 @@ public abstract class DataFixersMixin {
 	private static void addReachFixer(DataFixerBuilder dataFixerBuilder, CallbackInfo ci) {
 		// Neo: rename neo attributes to new MC attributes
 		// Happens in 24w03a
+
+        // Refabricated: Commented out due to causing errors on some world load and being pointless.
 //		Schema neoSchema3804 = dataFixerBuilder.addSchema(3804, SAME_NAMESPACED);
 //		dataFixerBuilder.addFixer(new AttributesRename(
 //				neoSchema3804,
